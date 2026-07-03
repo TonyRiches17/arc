@@ -1,3 +1,8 @@
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import timeGridPlugin from "@fullcalendar/timegrid";
+import listPlugin from "@fullcalendar/list";
+import interactionPlugin from "@fullcalendar/interaction";
 import "./Calendar.css";
 
 function Calendar() {
@@ -8,9 +13,24 @@ function Calendar() {
 // npm install @fullcalendar/list
 // npm install @fullcalendar/interaction
 
-  <div className="calendar">
-
-  </div>
+  return(
+    <div className="calendar">
+      <FullCalendar
+  plugins={[
+    dayGridPlugin,
+    timeGridPlugin,
+    listPlugin,
+    interactionPlugin,
+  ]}
+  initialView="dayGridMonth"
+  headerToolbar={{
+    left: "prev,next today",
+    center: "title",
+    right: "dayGridMonth,timeGridWeek,timeGridDay,listWeek",
+  }}
+/>
+    </div>
+  )
 }
 
 export default Calendar;
