@@ -7,14 +7,14 @@ import Footer from "../Footer/Footer";
 import Modal from "../Modal/Modal";
 
 function App() {
-  const [modalActive, setModalActive] = useState(false);
+  const [modalActive, setModalActive] = useState("");
 
   return (
     <>
     <Header />
-    <Main setModalActive={setModalActive} />
+    <Main modalActive={modalActive} setModalActive={setModalActive} />
     <Footer />
-    {modalActive === true && (<Modal setModalActive={setModalActive} />)}
+    {modalActive !== "" && (<Modal modalActive={modalActive} setModalActive={setModalActive} />)}
     </>
   )
 }

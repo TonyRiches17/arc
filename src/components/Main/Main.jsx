@@ -2,8 +2,9 @@ import { Link, useLocation } from "react-router-dom";
 import "./Main.css";
 import Calendar from "../Calendar/Calendar";
 import Bills from "../Bills/Bills";
+import Grocery from "../Grocery/Grocery";
 
-function Main({ setModalActive }) {
+function Main({ modalActive, setModalActive }) {
   const location = useLocation();
 
   return (
@@ -21,8 +22,8 @@ function Main({ setModalActive }) {
         </div>
         <div className="main__displayed">
           {location.pathname === "/calendar" && (<Calendar />)}
-          {location.pathname === "/bills" && (<Bills setModalActive={setModalActive} />)}
-
+          {location.pathname === "/bills" && (<Bills modalActive={modalActive} setModalActive={setModalActive} />)}
+          {location.pathname === "/groceries" && (<Grocery modalActive={modalActive} setModalActive={setModalActive} />)}
         </div>
       </div>
     </div>

@@ -1,15 +1,17 @@
-import { useLocation } from "react-router-dom";
+
+import BillsForm from "../Forms/BillsForm";
+import GroceryForm from "../Forms/GroceryForm";
 import "./Modal.css";
 
-function Modal({ setModalActive }) {
-
-  const location = useLocation();
+function Modal({ modalActive, setModalActive, children }) {
 
   return(
     <div className="modal">
       <div className="modal__container">
-        <button onClick={() => {setModalActive(false)}} type="button" className="modal__container-close">X</button>
-
+        {children}
+        <button onClick={() => {setModalActive("")}} type="button" className="modal__container-close">X</button>
+        {modalActive === "bills" && <BillsForm />}
+        {modalActive === "groceries" && <GroceryForm />}
       </div>
     </div>
   )
