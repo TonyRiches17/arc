@@ -1,0 +1,14 @@
+.bills {
+  position: relative;
+}
+
+.bills__add {
+  font-size: 25px;
+  border-radius: 50%;
+  background-color: #00F;
+  color: #FFF;
+  position:fixed;
+  top: 100px;
+  right: 100px;
+  cursor: pointer;
+}
