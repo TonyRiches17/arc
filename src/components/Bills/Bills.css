@@ -5,10 +5,14 @@
 .bills__add {
   font-size: 25px;
   border-radius: 50%;
-  background-color: #00F;
+  background-color: #0F0;
   color: #FFF;
   position:fixed;
   top: 100px;
   right: 100px;
   cursor: pointer;
+}
+
+.bills__add:hover {
+  transform: scale(1.05, 1.05);
 }

@@ -1,0 +1,31 @@
+.form__title {
+  margin: 0;
+}
+
+.form__type {
+  width: 200px;
+  border-radius: 5px;
+}
+
+.form__reoccuring {
+  width: 200px;
+  border-radius: 5px;
+}
+
+.form__input {
+  width: 100px;
+  border-radius: 5px;
+}
+
+.form__submit {
+  font-size: 25px;
+  border-radius: 5px;
+  background-color: #0F0;
+  color: #FFF;
+  cursor: pointer;
+}
+
+.form__submit:hover{
+  transform: scale(1.03, 1.03);
+  box-shadow: 1px 1px 5px rgb(0, 70, 0);
+}
