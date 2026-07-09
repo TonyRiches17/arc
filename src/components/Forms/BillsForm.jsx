@@ -44,10 +44,10 @@ const handleChange = (evt) => {
           <option>Yearly</option>
         </select>
         <label htmlFor="billdue" className="form__label">Due Date:
-          <input onChange={handleChange} value={billsForm.billdue} id="billdue" name="billdue" type="date" className="form__input" />
+          <input onChange={handleChange} value={billsForm.billdue} required id="billdue" name="billdue" type="date" className="form__input" />
         </label>
         <label htmlFor="billamount" className="form__label">Amount:
-          <input onChange={handleChange} value={billsForm.billamount} id="billamount" name="billamount" type="text" className="form__input" />
+          <input onChange={handleChange} value={billsForm.billamount} required id="billamount" name="billamount" type="text" className="form__input" />
         </label>
         <button type="submit" className="form__submit">Submit</button>
         </form>

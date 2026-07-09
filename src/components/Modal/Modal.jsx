@@ -5,9 +5,15 @@ import "./Modal.css";
 
 function Modal({ modalActive, setModalActive, children }) {
 
+  const closeModal = (evt) => {
+    evt.stopPropagation();
+    setModalActive("");
+    
+  };
+
   return(
     <div className="modal">
-      <div className="modal__container">
+      <div onClick={closeModal} className="modal__container">
         {children}
         <button onClick={() => {setModalActive("")}} type="button" className="modal__container-close">X</button>
         {modalActive === "bills" && <BillsForm />}
