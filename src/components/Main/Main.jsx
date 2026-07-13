@@ -3,6 +3,7 @@ import "./Main.css";
 import Calendar from "../Calendar/Calendar";
 import Bills from "../Bills/Bills";
 import Grocery from "../Grocery/Grocery";
+import Queues from "../Queues/Queues";
 
 function Main({ modalActive, setModalActive }) {
   const location = useLocation();
@@ -15,15 +16,18 @@ function Main({ modalActive, setModalActive }) {
           <Link className="main__panel-link" to="/calendar">Calendar</Link>
           <Link className="main__panel-link" to="/groceries">Groceries</Link>
           <Link className="main__panel-link" to="/bills">Bills</Link>
+          <Link className="main__panel-link" to="/queues">Queues</Link>
           <Link className="main__panel-link" to="/tasks">Tasks</Link>
           <Link className="main__panel-link" to="/notes">Notes</Link>
           <Link className="main__panel-link" to="/settings">Settings</Link>
 
         </div>
         <div className="main__displayed">
-          {location.pathname === "/calendar" && (<Calendar />)}
+          {location.pathname === "/calendar" && (<Calendar modalActive={modalActive} setModalActive={setModalActive} />)}
           {location.pathname === "/bills" && (<Bills modalActive={modalActive} setModalActive={setModalActive} />)}
           {location.pathname === "/groceries" && (<Grocery modalActive={modalActive} setModalActive={setModalActive} />)}
+          {location.pathname === "/queues" && (<Queues modalActive={modalActive} setModalActive={setModalActive} />)}
+
         </div>
       </div>
     </div>

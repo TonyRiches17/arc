@@ -1,0 +1,27 @@
+.queues__title-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.queues__title-input {
+  border-radius: 5px;
+}
+
+.queues__title-input_hidden {
+  visibility: hidden;
+}
+
+.queue__title {
+  font-size: 20px;
+  margin: 0;
+}
+
+.queue__title_hidden {
+  visibility: hidden;
+}
+
+.queues__title-add {
+  background-color: #0F0;
+  border-radius: 10px;
+  cursor: pointer;
+}
