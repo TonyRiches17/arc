@@ -12,6 +12,16 @@
   right: 75px;
 }
 
+.queues__add-button_disabled {
+  background-color: #0F0;
+  color: #FFF;
+  border-radius: 5px;
+  position: fixed;
+  top: 110px;
+  right: 75px;
+  background-color: #555;
+}
+
 .queues__repeat-container {
   display: flex;
   justify-content: center;
@@ -79,4 +89,24 @@
 
 .queuecard__options:hover {
   box-shadow: 1px 1px 5px #000;
+}
+
+.queuecard__options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  position: absolute;
+  top: -34px;
+  right: -15px;
+}
+
+.queuecard__options-button1 {
+  border: none;
+  border-bottom: 1px solid #000;
+}
+
+.queuecard__options-button2 {
+  border: none;
 }

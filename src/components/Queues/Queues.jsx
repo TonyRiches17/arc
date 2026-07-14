@@ -9,6 +9,13 @@ function Queues({ modalActive, setModalActive, closeModal }) {
   const [theQueueExists, setTheQueueExists] = useState(false);
   const [currentQueueTitle, setCurrentQueueTitle] = useState("");
 
+  const addDisabled = () => {
+    if(theQueueExists) {
+      return;
+    }
+    setModalActive("queuesform");
+  };
+
 const addQueue = (title) => {
   const trimmedTitle = title.trim();
 
@@ -16,11 +23,6 @@ const addQueue = (title) => {
     (queue) =>
       queue.title.toLowerCase() === trimmedTitle.toLowerCase()
   );
-
-  // if (queueExists) {
-  //   alert("A queue with that name already exists.");
-  //   return;
-  // }
 
     if(queueExists) {
       setTheQueueExists(true);
@@ -68,8 +70,8 @@ const addQueue = (title) => {
     <section className="queues">
 
       <button
-        onClick={() => setModalActive("queuesform")}
-        className="queues__add-button"
+        onClick={addDisabled}
+        className={theQueueExists ? "queues__add-button_disabled" : "queues__add-button"}
       >
         +
       </button>
