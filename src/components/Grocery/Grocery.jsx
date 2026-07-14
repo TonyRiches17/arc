@@ -2,13 +2,13 @@ import "./Grocery.css";
 import GroceryForm from "../Forms/GroceryForm";
 import Modal from "../Modal/Modal";
 
-function Grocery({ modalActive, setModalActive }) {
+function Grocery({ modalActive, setModalActive, closeModal }) {
 
 
 return(
     <div className="grocery">
       <button onClick={() => {setModalActive("groceries")}} type="button" className="grocery__add">+</button>
-      {/* {modalActive === true && (<Modal><GroceryForm /></Modal>)} */}
+      {modalActive === "groceries" && (<Modal closeModal={closeModal}><GroceryForm /></Modal>)}
     </div>
   )
 }

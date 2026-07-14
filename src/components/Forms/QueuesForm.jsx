@@ -1,24 +1,3 @@
-// import { useState } from "react";
-// import "./Forms.css";
-
-// function QueuesForm() {
-//   const [titleValue, setTitleValue] = useState("");
-
-//   const handleInputChange = (evt) => {
-//     setTitleValue(evt.target.value)
-//   }
-
-//   return(
-//     <div className="form__form-center">
-//       <h2 className="form__title">Add a Queue</h2>
-//       <input onChange={handleInputChange} value={titleValue} placeholder="Title of Queue" type="text" className="form__input" />
-//       <button className="form__submit">Submit</button>
-//     </div>
-//   )
-// }
-
-// export default QueuesForm;
-
 import { useState } from "react";
 import "./Forms.css";
 

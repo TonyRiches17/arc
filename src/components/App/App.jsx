@@ -9,12 +9,15 @@ import Modal from "../Modal/Modal";
 function App() {
   const [modalActive, setModalActive] = useState("");
 
+  const closeModal = () => {
+    setModalActive("");
+  };
+
   return (
     <>
     <Header />
-    <Main modalActive={modalActive} setModalActive={setModalActive} />
+    <Main modalActive={modalActive} setModalActive={setModalActive} closeModal={closeModal} />
     <Footer />
-    {modalActive !== "" && (<Modal modalActive={modalActive} setModalActive={setModalActive} />)}
     </>
   )
 }

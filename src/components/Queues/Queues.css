@@ -12,9 +12,27 @@
   right: 75px;
 }
 
+.queues__repeat-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.queues__repeat-text {
+  margin: 0;
+}
+
+.queues__repeat-button {
+  background-color: #0F0;
+  color: #FFF;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .queues__grid {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
   padding: 50px 75px;
 }
 
@@ -27,7 +45,7 @@
 }
 
 .queuecard__container {
-  width: 200px;
+  min-width: 200px;
   height: 200px;
   display: flex;
   flex-direction: column;

@@ -4,13 +4,33 @@ import Modal from "../Modal/Modal";
 import QueuesForm from "../Forms/QueuesForm";
 import QueueCard from "./QueueCard";
 
-function Queues({ modalActive, setModalActive }) {
+function Queues({ modalActive, setModalActive, closeModal }) {
   const [queues, setQueues] = useState([]);
+  const [theQueueExists, setTheQueueExists] = useState(false);
+  const [currentQueueTitle, setCurrentQueueTitle] = useState("");
 
-  const addQueue = (title) => {
+const addQueue = (title) => {
+  const trimmedTitle = title.trim();
+
+  const queueExists = queues.some(
+    (queue) =>
+      queue.title.toLowerCase() === trimmedTitle.toLowerCase()
+  );
+
+  // if (queueExists) {
+  //   alert("A queue with that name already exists.");
+  //   return;
+  // }
+
+    if(queueExists) {
+      setTheQueueExists(true);
+      setCurrentQueueTitle(title);
+      return;
+    }
+
   const newQueue = {
     id: crypto.randomUUID(),
-    title,
+    title: trimmedTitle,
     items: [],
     createdAt: Date.now(),
     color: "#4CAF50",
@@ -53,8 +73,12 @@ function Queues({ modalActive, setModalActive }) {
       >
         +
       </button>
-            {/* {modalActive === "queuesform" && <Modal addQueue={addQueue} />} */}
+            {modalActive === "queuesform" && <Modal closeModal={closeModal}><QueuesForm addQueue={addQueue} setModalActive={setModalActive} /></Modal>}
 
+      {theQueueExists && (<div className="queues__repeat-container">
+        <p className="queues__repeat-text">A queue named "{currentQueueTitle}", already exists</p>
+        <button onClick={() => setTheQueueExists(false)} type="button" className="queues__repeat-button">OK</button>
+      </div>)}
 
       <div className="queues__grid">
 

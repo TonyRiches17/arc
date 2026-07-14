@@ -5,7 +5,7 @@ import Bills from "../Bills/Bills";
 import Grocery from "../Grocery/Grocery";
 import Queues from "../Queues/Queues";
 
-function Main({ modalActive, setModalActive }) {
+function Main({ modalActive, setModalActive, closeModal }) {
   const location = useLocation();
 
   return (
@@ -23,10 +23,10 @@ function Main({ modalActive, setModalActive }) {
 
         </div>
         <div className="main__displayed">
-          {location.pathname === "/calendar" && (<Calendar modalActive={modalActive} setModalActive={setModalActive} />)}
-          {location.pathname === "/bills" && (<Bills modalActive={modalActive} setModalActive={setModalActive} />)}
-          {location.pathname === "/groceries" && (<Grocery modalActive={modalActive} setModalActive={setModalActive} />)}
-          {location.pathname === "/queues" && (<Queues modalActive={modalActive} setModalActive={setModalActive} />)}
+          {location.pathname === "/calendar" && (<Calendar modalActive={modalActive} setModalActive={setModalActive} closeModal={closeModal}  />)}
+          {location.pathname === "/bills" && (<Bills modalActive={modalActive} setModalActive={setModalActive} closeModal={closeModal}  />)}
+          {location.pathname === "/groceries" && (<Grocery modalActive={modalActive} setModalActive={setModalActive} closeModal={closeModal} />)}
+          {location.pathname === "/queues" && (<Queues modalActive={modalActive} setModalActive={setModalActive} closeModal={closeModal} />)}
 
         </div>
       </div>
