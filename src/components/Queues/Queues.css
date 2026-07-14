@@ -1,27 +1,64 @@
-.queues__title-container {
-  display: flex;
-  justify-content: space-between;
+.queues {
+  position: relative;
 }
 
-.queues__title-input {
+.queues__add-button {
+  background-color: #0F0;
+  color: #FFF;
   border-radius: 5px;
+  cursor: pointer;
+  position: fixed;
+  top: 110px;
+  right: 75px;
 }
 
-.queues__title-input_hidden {
-  visibility: hidden;
+.queues__grid {
+  display: flex;
+  gap: 20px;
+  padding: 50px 75px;
 }
 
-.queue__title {
-  font-size: 20px;
+.queues__back-button {
+  background-color: #0F0;
+  color: #FFF;
+  border-radius: 5px;
+  padding: 3px;
+  cursor: pointer;
+}
+
+.queuecard__container {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: radial-gradient(red 0%, gray 100%);
+  border: 1px solid #000;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+
+.queuecard__container:hover {
+  transform: scale(1.05, 1.05);
+}
+
+.queuecard__title {
+  font-size: 30px;
+  color: #FFF;
   margin: 0;
 }
 
-.queue__title_hidden {
-  visibility: hidden;
+.queuecard__options {
+  border-radius: 5px;
+  background-color: #FFF;
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  cursor: pointer;
 }
 
-.queues__title-add {
-  background-color: #0F0;
-  border-radius: 10px;
-  cursor: pointer;
+.queuecard__options:hover {
+  box-shadow: 1px 1px 5px #000;
 }

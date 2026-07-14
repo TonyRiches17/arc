@@ -14,7 +14,6 @@
 .modal__container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 15px;
   width: 325px;
   height: max-content;
@@ -32,6 +31,7 @@
   right: 20px;
   border-radius: 5px;
   cursor: pointer;
+  z-index: 2;
 }
 
 .modal__container-close:hover {

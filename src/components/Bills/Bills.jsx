@@ -1,15 +1,15 @@
-import { useState } from "react";
+
 import "./Bills.css";
 import Modal from "../Modal/Modal";
 import BillsForm from "../Forms/BillsForm";
 
 function Bills({ modalActive, setModalActive }) {
-const [bills, setBills] = useState([]);
+
 
   return(
     <div className="bills">
-      <button onClick={() => {setModalActive("bills")}} type="button" className="bills__add">+</button>
-      {modalActive === "bills" && (<Modal />)}
+      <button onClick={() => {setModalActive("whatever")}} type="button" className="bills__add">+</button>
+      {modalActive && (<Modal><BillsForm /></Modal>)}
 
     </div>
   )
