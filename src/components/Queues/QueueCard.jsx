@@ -1,12 +1,17 @@
 import { useState } from "react";
 import "./Queues.css"
 
-function QueueCard({ queue, onClick }) {
+function QueueCard({ queue, onClick, deleteQueue }) {
   const [optionsClicked, setOptionsClicked] = useState(false);
 
   const showOptions = (evt) => {
     evt.stopPropagation();
     setOptionsClicked(!optionsClicked);
+  };
+
+  const handleDeleteQueue = (evt) => {
+    evt.stopPropagation();
+    deleteQueue(queue.id);
   };
 
   return (
@@ -22,8 +27,8 @@ function QueueCard({ queue, onClick }) {
       </button>
 
       {optionsClicked && (<div className="queuecard__options-container">
-          <button className="queuecard__options-button1">Delete</button>
-          <button className="queuecard__options-button2">Rename</button>
+          <button onClick={handleDeleteQueue} type="button" className="queuecard__options-button1">Delete</button>
+          <button type="button" className="queuecard__options-button2">Rename</button>
         </div>
         )}
 

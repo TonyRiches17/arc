@@ -41,6 +41,10 @@ const addQueue = (title) => {
   setQueues((prevQueues) => [...prevQueues, newQueue]);
 };
 
+  const deleteQueue = (id) => {
+    setQueues((prevItems) => prevItems.filter((item) => item.id !== id));
+  }
+
   const [selectedQueueId, setSelectedQueueId] = useState(null);
 
   const handleQueueClick = (id) => {
@@ -89,6 +93,7 @@ const addQueue = (title) => {
             key={queue.id}
             queue={queue}
             onClick={() => handleQueueClick(queue.id)}
+            deleteQueue={deleteQueue}
           />
         ))}
 

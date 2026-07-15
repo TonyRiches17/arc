@@ -55,12 +55,13 @@
 }
 
 .queuecard__container {
-  min-width: 200px;
+  width: 200px;
   height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   background-image: radial-gradient(red 0%, gray 100%);
   border: 1px solid #000;
   border-radius: 50%;
@@ -105,8 +106,20 @@
 .queuecard__options-button1 {
   border: none;
   border-bottom: 1px solid #000;
+  cursor: pointer;
+}
+
+.queuecard__options-button1:hover {
+  background-color: #555;
+  color: #FFF;
 }
 
 .queuecard__options-button2 {
   border: none;
+  cursor: pointer;
+}
+
+.queuecard__options-button2:hover {
+  background-color: #555;
+  color: #FFF;
 }
