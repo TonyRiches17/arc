@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./Queues.css"
+import Modal from "../Modal/Modal";
 
-function QueueCard({ queue, onClick, deleteQueue }) {
+function QueueCard({ queue, onClick, deleteQueue, openRenameModal }) {
   const [optionsClicked, setOptionsClicked] = useState(false);
 
   const showOptions = (evt) => {
@@ -15,6 +16,7 @@ function QueueCard({ queue, onClick, deleteQueue }) {
   };
 
   return (
+    <div className="queuecard">
     <article
       className="queuecard__container"
       onClick={onClick}
@@ -28,11 +30,13 @@ function QueueCard({ queue, onClick, deleteQueue }) {
 
       {optionsClicked && (<div className="queuecard__options-container">
           <button onClick={handleDeleteQueue} type="button" className="queuecard__options-button1">Delete</button>
-          <button type="button" className="queuecard__options-button2">Rename</button>
+          <button onClick={(evt) => openRenameModal(queue, evt)} type="button" className="queuecard__options-button2">Rename</button>
         </div>
         )}
 
     </article>
+
+    </div>
   );
 }
 

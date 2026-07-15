@@ -3,11 +3,12 @@ import "./Queues.css";
 import Modal from "../Modal/Modal";
 import QueuesForm from "../Forms/QueuesForm";
 import QueueCard from "./QueueCard";
+import QueueCardForm from "../Forms/QueueCardForm";
 
 function Queues({ modalActive, setModalActive, closeModal }) {
   const [queues, setQueues] = useState([]);
   const [theQueueExists, setTheQueueExists] = useState(false);
-  const [currentQueueTitle, setCurrentQueueTitle] = useState("");
+  const [selectedQueue, setSelectedQueue] = useState(null);
 
   const addDisabled = () => {
     if(theQueueExists) {
@@ -26,7 +27,7 @@ const addQueue = (title) => {
 
     if(queueExists) {
       setTheQueueExists(true);
-      setCurrentQueueTitle(title);
+      setSelectedQueue(title);
       return;
     }
 
@@ -44,6 +45,44 @@ const addQueue = (title) => {
   const deleteQueue = (id) => {
     setQueues((prevItems) => prevItems.filter((item) => item.id !== id));
   }
+
+  const openRenameModal = (queue, evt) => {
+    evt.stopPropagation();
+    setModalActive("queuecardform");
+    setSelectedQueue(queue);
+  };
+
+  const renameQueue = (id, newTitle) => {
+    const trimmedTitle = newTitle.trim();
+
+  // Prevent duplicate names
+  const queueExists = queues.some(
+    (queue) =>
+      queue.id !== id &&
+      queue.title.toLowerCase() === trimmedTitle.toLowerCase()
+  );
+
+  // if (queueExists) {
+  //   alert("A queue with that name already exists.");
+  //   return false;
+  // }
+
+  if(queueExists) {
+      setTheQueueExists(true);
+      setSelectedQueue(newTitle);
+      return;
+    }
+
+  setQueues((prevQueues) =>
+    prevQueues.map((queue) =>
+      queue.id === id
+        ? { ...queue, title: trimmedTitle }
+        : queue
+    )
+  );
+
+  return true;
+};
 
   const [selectedQueueId, setSelectedQueueId] = useState(null);
 
@@ -82,7 +121,7 @@ const addQueue = (title) => {
             {modalActive === "queuesform" && <Modal closeModal={closeModal}><QueuesForm addQueue={addQueue} setModalActive={setModalActive} /></Modal>}
 
       {theQueueExists && (<div className="queues__repeat-container">
-        <p className="queues__repeat-text">A queue named "{currentQueueTitle}", already exists</p>
+        <p className="queues__repeat-text">A queue named "{selectedQueue}", already exists</p>
         <button onClick={() => setTheQueueExists(false)} type="button" className="queues__repeat-button">OK</button>
       </div>)}
 
@@ -94,8 +133,15 @@ const addQueue = (title) => {
             queue={queue}
             onClick={() => handleQueueClick(queue.id)}
             deleteQueue={deleteQueue}
+            setModalActive={setModalActive}
+            closeModal={closeModal}
+            modalActive={modalActive}
+            openRenameModal={openRenameModal}
           />
         ))}
+
+      {modalActive === "queuecardform" && <Modal closeModal={closeModal}><QueueCardForm selectedQueue={selectedQueue} renameQueue={renameQueue} closeModal={closeModal} /></Modal>}
+
 
       </div>
 
