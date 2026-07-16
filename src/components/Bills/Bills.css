@@ -4,7 +4,7 @@
 
 .bills__add {
   font-size: 25px;
-  border-radius: 50%;
+  border-radius: 5px;
   background-color: #0F0;
   color: #FFF;
   position:fixed;
@@ -15,4 +15,32 @@
 
 .bills__add:hover {
   transform: scale(1.05, 1.05);
+}
+
+.bills__cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 50px;
+}
+
+.billcard {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #000;
+  border-radius: 3px;
+}
+
+.billcard__image-container {
+
+}
+
+.billcard__info-container {
+  border-top: 1px solid #000;
+  padding: 5px 10px;
+}
+
+.billcard__text {
+  margin: 0;
 }

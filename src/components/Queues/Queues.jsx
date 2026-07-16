@@ -62,11 +62,6 @@ const addQueue = (title) => {
       queue.title.toLowerCase() === trimmedTitle.toLowerCase()
   );
 
-  // if (queueExists) {
-  //   alert("A queue with that name already exists.");
-  //   return false;
-  // }
-
   if(queueExists) {
       setTheQueueExists(true);
       setSelectedQueue(newTitle);

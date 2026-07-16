@@ -3,13 +3,14 @@
 }
 
 .queues__add-button {
+  font-size: 25px;
   background-color: #0F0;
   color: #FFF;
   border-radius: 5px;
   cursor: pointer;
   position: fixed;
-  top: 110px;
-  right: 75px;
+  top: 100px;
+  right: 100px;
 }
 
 .queues__add-button_disabled {
